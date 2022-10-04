@@ -1,3 +1,5 @@
+const listaProductos = document.getElementById("container")
+
 class indumentaria {
     constructor(id, imagen, producto, precio ){
     this.id = id;
@@ -28,5 +30,16 @@ const productos = [
     }
 ]
 
+productos.forEach((item) => {
+let card = document.createElement("div")
+card.innerHTML = `
+<img class="imgProduct" src=${item.imagen}>
+<h3 class="titleProduct">${item.nombre}</h3>
+<p class="priceProduct">$${item.precio}</p>
+<button class="btn" id=${item.id}>Comprar</button>
+`
+container.append(card);
+
+})
 
 

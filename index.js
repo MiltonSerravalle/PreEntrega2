@@ -65,3 +65,5 @@ if(productInCart !== undefined){
 
 viewCart.addEventListener("click", () => console.log(cart))
 
+let cartNumber = document.getElementById("numberCart")
+cartNumber.innerHTML = `${cart.length}`

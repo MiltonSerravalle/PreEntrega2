@@ -30,7 +30,7 @@ const productos = [
     }
 ]
 
-let carroCompras = [];
+let cart = [];
 
 productos.forEach((item) => {
 let card = document.createElement("div")
@@ -43,30 +43,25 @@ card.innerHTML = `
 container.append(card);
 
 const button = document.getElementById(item.id);
-button.addEventListener("click", () => agregaCarrito(item));
+button.addEventListener("click", () => addCart(item));
 });
 
-const comprarProducto = (item) => {
-    carroCompras.push(item)
-  }
 
-  const agregaCarrito = (item) => {
-    let productoStock = carroCompras.find((producto) => productos.id === item.id);
-    if (productoStock !== undefined) {
-      productoStock.precio = productoStock.precio + item.precio;
-      productoStock.cantidad = productoStock.cantidad + 1;
-    } else {
-      carroCompras.push({
+const addCart = (item) => {
+let productInCart = cart.find(product => product.id === item.id)
+if(productInCart !== undefined){
+    productInCart.precio = productInCart.precio + item.precio
+    productInCart.cantidad = productInCart.cantidad + 1
+}else{
+    cart.push ({
         id: item.id,
         nombre: item.nombre,
         precio: item.precio,
-        cantidad: 1,
-      });
-    }
-  };
-  
-  let carrito = document.getElementById("numberCart");
-  carrito.innerHTML = `${carroCompras.length}`;
-  
+        imagen: productos.imagen,
+        cantidad: 1
+    }) 
+}
+}
 
+viewCart.addEventListener("click", () => console.log(cart))
 

@@ -30,6 +30,8 @@ const productos = [
     }
 ]
 
+
+
 let cart = [];
 
 productos.forEach((item) => {
@@ -61,6 +63,7 @@ if(productInCart !== undefined){
         cantidad: 1
     }) 
 }
+localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 viewCart.addEventListener("click", () => console.log(cart))

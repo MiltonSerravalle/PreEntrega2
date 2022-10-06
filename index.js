@@ -48,6 +48,10 @@ const button = document.getElementById(item.id);
 button.addEventListener("click", () => addCart(item));
 });
 
+const refreshCartNumber = () => {
+    let cartNumber = document.getElementById("numberCart")
+    cartNumber.innerHTML = `${cart.length}`
+}
 
 const addCart = (item) => {
 let productInCart = cart.find(product => product.id === item.id)
@@ -63,12 +67,12 @@ if(productInCart !== undefined){
         cantidad: 1
     }) 
 }
+refreshCartNumber()
 localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-let returnCart = JSON.parse(localStorage.getItem(cart));
+let returnCart = JSON.parse(localStorage.getItem("cart"));
 
 viewCart.addEventListener("click", () => console.log(returnCart));
 
-let cartNumber = document.getElementById("numberCart")
-cartNumber.innerHTML = `${cart.length}`
+

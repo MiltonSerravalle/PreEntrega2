@@ -66,7 +66,9 @@ if(productInCart !== undefined){
 localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-viewCart.addEventListener("click", () => console.log(cart))
+let returnCart = JSON.parse(localStorage.getItem(cart));
+
+viewCart.addEventListener("click", () => console.log(returnCart));
 
 let cartNumber = document.getElementById("numberCart")
 cartNumber.innerHTML = `${cart.length}`

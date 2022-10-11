@@ -57,7 +57,7 @@ const addCart = (item) => {
 let productInCart = cart.find(product => product.id === item.id)
 if(productInCart !== undefined){
     productInCart.precio = productInCart.precio + item.precio
-    productInCart.cantidad = productInCart.cantidad + 1
+    productInCart.cantidad++
 }else{
     cart.push ({
         id: item.id,
